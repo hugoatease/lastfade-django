@@ -5,7 +5,7 @@ from fader import fader
 
 class BeginForm(forms.Form):
     username = forms.CharField(label="Pseudo Last.fm")
-    limit = forms.IntegerField(label="Limite", initial=500)
+    limit = forms.IntegerField(label="Limite (200 max)", initial=200)
 
 def home(request):
     results = None
