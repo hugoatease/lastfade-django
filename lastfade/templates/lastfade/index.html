@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lastfade - Top de vos enchaînements</title>
+  </head>
+
+  <body>
+  	<h3>Lastfade</h3>
+  	<p>Lastfade vous permet de connaître quels sont les artistes que vous associez le plus souvent à d'autres.</p>
+  	<p>Entrez votre pseudo Last.fm et découvrez.</p>
+  	
+  	<form action="{% url 'home' %}" method="get">
+  		{{ form.as_p }}
+  		<input type="submit" />
+  	</form>
+  	
+  	<ul>
+	  	{% if results != None %}
+	  		{% for result in results %}
+	  		<li>
+	  			{{ result.1 }} fois : {{ result.0.0 }} ==> {{ result.0.1 }}
+	  		</li>
+	  		{% endfor %}
+	  	{% endif %}
+  	</ul>
+  </body>
+</html>
